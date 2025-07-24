@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="16dp"
+    android:background="#F8F9FA">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/studentID"
-        android:textSize="24sp" />
+        android:text="BLE Attendance System"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="20dp"/>
 
+    <!-- Student Roll Number Display -->
+    <TextView
+        android:id="@+id/text_student_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student ID: --"
+        android:textSize="18sp"
+        android:layout_marginBottom="12dp"
+        android:textColor="#333"/>
+
+    <!-- Attendance Status -->
+    <TextView
+        android:id="@+id/text_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: Not Marked"
+        android:textSize="16sp"
+        android:textColor="#FF0000"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Mark Attendance Button -->
     <Button
-        android:id="@+id/advertiseButton"
+        android:id="@+id/btn_mark_attendance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mark Attendance"
-        android:textSize="24sp" />
-
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:padding="12dp"
+        android:textSize="16sp"/>
 </LinearLayout>
