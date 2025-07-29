@@ -9,6 +9,7 @@ import android.bluetooth.le.BluetoothLeAdvertiser
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -190,6 +191,13 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             bluetoothLeAdvertiser?.stopAdvertising(advertiseCallback)
             Log.d("BLE", "Advertising stopped")
+            peerRSSI.clear()
+            val attendanceText: TextView = findViewById<TextView>(R.id.text_status)
+            attendanceText.setText("Status: Not Marked")
+            attendanceText.setTextColor(Color.RED)
+            val advertiseButton: Button = findViewById(R.id.btn_mark_attendance)
+            advertiseButton.setEnabled(true)
+            advertiseButton.getBackground().setColorFilter(Color.GREEN, PorterDuff.Mode.MULTIPLY)
         }, 30000)
     }
 
@@ -222,7 +230,10 @@ class MainActivity : AppCompatActivity() {
             val attendanceText: TextView = findViewById<TextView>(R.id.text_status)
             attendanceText.setText("Status: Present Marked")
             attendanceText.setTextColor(Color.GREEN)
-            // Stop advertising after 5 seconds (optional)
+            val advertiseButton: Button = findViewById(R.id.btn_mark_attendance)
+            advertiseButton.setEnabled(false)
+            advertiseButton.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY)
+        // Stop advertising after 5 seconds (optional)
 //            bluetoothLeAdvertiser?.let {
 //                it.stopAdvertising(this)
 //                Log.d(TAG, "Advertising stopped after one shot")
