@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             showStudentIdDialog(sharedPref)
         } else {
             val studentIDText: TextView = findViewById(R.id.text_student_id)
-            studentIDText.setText("Student ID : " + studentId.toString())
+            studentIDText.setText("Student Roll Number : " + studentId.toString())
         }
     }
 
@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         val inputField = android.widget.EditText(this)
 
         AlertDialog.Builder(this)
-            .setTitle("Enter Student ID")
+            .setTitle("Enter Student Roll number")
             .setView(inputField)
             .setCancelable(false)
             .setPositiveButton("Submit") { _, _ ->
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
                 if (studentId.isNotEmpty()) {
                     sharedPref.edit().putString("student_id", studentId).apply()
                 } else {
-                    Toast.makeText(this, "Student ID is required", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Student Roll Number is required", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }

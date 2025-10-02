@@ -23,7 +23,7 @@
         android:id="@+id/text_student_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student ID: --"
+        android:text="Student Roll Number: --"
         android:textSize="18sp"
         android:layout_marginBottom="12dp"
         android:textColor="#333"/>
